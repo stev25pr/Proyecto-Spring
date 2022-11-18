@@ -6,12 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import co.edu.ucentral.common.envio.model.Envio;
-
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -20,21 +19,29 @@ public class Tproducto implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long id;	
 	
-	@ManyToOne
-	@JoinColumn(name="id_envio")
-	private Envio envio;
-	
+	@NotEmpty(message="No puede ser vacio")
+	@Size(min=5, max=30, message="Carateres min 5 y max 30")
 	private String nombre;
+	
+	@NotEmpty(message="No puede ser vacio")
+	@Size(min=5, max=30, message="Carateres min 5 y max 30")
 	private String descripcion;
+	
+	@NotNull(message="NO puede ser nulo")
+	@Positive(message="No puede ser negativo")
 	private double peso;
+	
+	@NotNull(message="NO puede ser nulo")
+	@Positive(message="No puede ser negativo")
 	private double volumen;
+	
 	//Se utiliza para gurdar el precio que tiene enviar 
 	//este producto con todas las tarifas que esten activas
+	@NotNull(message="NO puede ser nulo")
+	@Positive(message="No puede ser negativo")
 	private double valor;
-	
-	
 	
 	
 	public Long getId() {
@@ -47,23 +54,6 @@ public class Tproducto implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
-
-
-	public Envio getEnvio() {
-		return envio;
-	}
-
-
-
-
-	public void setEnvio(Envio envio) {
-		this.envio = envio;
-	}
-
-
-
 
 	public String getNombre() {
 		return nombre;

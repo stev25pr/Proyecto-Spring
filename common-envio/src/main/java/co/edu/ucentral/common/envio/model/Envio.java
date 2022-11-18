@@ -26,10 +26,6 @@ public class Envio implements Serializable{
 	private String direccionEntrega;
 	
 	
-	
-	
-	
-
 	public Long getId() {
 		return id;
 	}

@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="t_cliente")
@@ -16,9 +18,13 @@ public class Tcliente implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty(message="No puede ser vacio")
+	@Size(min=5, max=30, message="Carateres min 5 y max 30")
 	private String documento;
+	
+	@NotEmpty(message="No puede ser vacio")
+	@Size(min=5, max=30, message="Carateres min 5 y max 30")
 	private String nombre;
-	private String contrasena;
 	
 	
 	
@@ -54,18 +60,6 @@ public class Tcliente implements Serializable{
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-
-
-	public String getContrasena() {
-		return contrasena;
-	}
-
-
-
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
 	}
 
 
