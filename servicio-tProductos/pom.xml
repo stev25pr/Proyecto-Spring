@@ -19,18 +19,14 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>co.edu.ucentral.common.tproducto</groupId>
-			<artifactId>common-tproducto</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>co.edu.ucentral.common.envio</groupId>
-			<artifactId>common-envio</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>steven.com.commons-services</groupId>
 			<artifactId>commons-services</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+			
+		<dependency>
+			<groupId>co.edu.ucentral.common.tproducto</groupId>
+			<artifactId>common-tproducto</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>

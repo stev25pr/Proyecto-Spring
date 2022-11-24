@@ -1,6 +1,5 @@
 package co.edu.ucentral.servicio.envio.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,32 +11,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import co.edu.ucentral.common.tproducto.model.Tproducto;
 
-
-
 @Entity
-@Table(name="envio")
-public class Envio implements Serializable{
-
+@Table(name = "envio")
+public class Envio {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotEmpty(message="No puede ser vacio")
-	@Size(min=5, max=30, message="Carateres min 5 y max 30")
-	private String estado;
-	@NotEmpty(message="No puede ser vacio")
-	@Size(min=5, max=30, message="Carateres min 5 y max 30")
-	private String direccionRecibido;
-	@NotEmpty(message="No puede ser vacio")
-	@Size(min=5, max=30, message="Carateres min 5 y max 30")
-	private String direccionEntrega;
 	
+	private String origen;
+	
+	private String destino;
+	
+	private String direccion;
 	
 	@JsonIgnoreProperties(value= {"envio"}, allowSetters=true)
 	@OneToMany(mappedBy ="envio", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -45,49 +36,39 @@ public class Envio implements Serializable{
 	
 	public Envio() {
 		this.tProductos = new ArrayList<Tproducto>();
-		//Suma de todos los precios 
-		/*for(int i=0,i<this.tProductos.size(),i=i+1) {
-			float total = this.tProductos.precio();
-	
-		}*/
-	}
-		
-	public List<Tproducto> gettProductos() {
-		return tProductos;
-	}
-	
-	public void settProductos(List<Tproducto> tProductos) {
-		this.tProductos = tProductos;
 	}
 	
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getEstado() {
-		return estado;
+
+	public String getOrigen() {
+		return origen;
 	}
-	public void setEstado(String estado) {
-		this.estado = estado;
+
+	public void setOrigen(String origen) {
+		this.origen = origen;
 	}
-	public String getDireccionRecibido() {
-		return direccionRecibido;
+
+	public String getDestino() {
+		return destino;
 	}
-	public void setDireccionRecibido(String direccionRecibido) {
-		this.direccionRecibido = direccionRecibido;
+
+	public void setDestino(String destino) {
+		this.destino = destino;
 	}
-	public String getDireccionEntrega() {
-		return direccionEntrega;
+
+	public String getDireccion() {
+		return direccion;
 	}
-	public void setDireccionEntrega(String direccionEntrega) {
-		this.direccionEntrega = direccionEntrega;
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	
 }

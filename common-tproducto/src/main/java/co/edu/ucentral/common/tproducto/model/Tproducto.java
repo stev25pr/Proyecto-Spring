@@ -35,29 +35,29 @@ public class Tproducto implements Serializable{
 	
 	@NotNull(message="NO puede ser nulo")
 	@Positive(message="No puede ser negativo")
-	private double peso;
+	private float peso;
 	
 	@NotNull(message="NO puede ser nulo")
 	@Positive(message="No puede ser negativo")
-	private double volumen;
+	private float volumen;
 	
 	@NotNull(message="NO puede ser nulo")
 	@Positive(message="No puede ser negativo")
-	private double trasnporte; /// Poner una lista de opciones y cada una se envia un valor diferente
+	private float trasnporte; /// Poner una lista de opciones y cada una se envia un valor diferente
 	
 	@NotNull(message="NO puede ser nulo")
 	@Positive(message="No puede ser negativo")
-	private double fragilidad;///Poner una lista de opciones y cada una se envia un valor diferente
+	private float fragilidad;///Poner una lista de opciones y cada una se envia un valor diferente
 	
 	//Se utiliza para gurdar el precio que tiene enviar 
 	//este producto con todas las tarifas que esten activas
 	@NotNull(message="NO puede ser nulo")
 	@Positive(message="No puede ser negativo")
-	private double valor;
+	private float valor;
 	
 	//-----------Relaciones---------------------//
 	
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	/*@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "mercancia_id")
 	private TipoMercancia mercancia;
 	
@@ -69,7 +69,7 @@ public class Tproducto implements Serializable{
 
 	public void setMercancia(TipoMercancia mercancia) {
 		this.mercancia = mercancia;
-	}
+	}*/
 
 
 	//-----------------------------------------//
@@ -121,7 +121,7 @@ public class Tproducto implements Serializable{
 
 
 
-	public void setPeso(double peso) {
+	public void setPeso(float peso) {
 		this.peso = peso;
 	}
 
@@ -135,7 +135,7 @@ public class Tproducto implements Serializable{
 
 
 
-	public void setVolumen(double volumen) {
+	public void setVolumen(float volumen) {
 		this.volumen = volumen;
 	}
 
@@ -149,7 +149,7 @@ public class Tproducto implements Serializable{
 
 
 
-	public void setTrasnporte(double trasnporte) {
+	public void setTrasnporte(float trasnporte) {
 		this.trasnporte = trasnporte;
 	}
 
@@ -163,7 +163,7 @@ public class Tproducto implements Serializable{
 
 
 
-	public void setFragilidad(double fragilidad) {
+	public void setFragilidad(float fragilidad) {
 		this.fragilidad = fragilidad;
 	}
 
@@ -177,7 +177,7 @@ public class Tproducto implements Serializable{
 
 
 
-	public void setValor(double valor) {
+	public void setValor(float valor) {
 		this.valor = valor;
 	}
 

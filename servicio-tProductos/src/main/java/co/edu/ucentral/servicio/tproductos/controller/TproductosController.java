@@ -20,7 +20,7 @@ import steven.com.commons.services.controller.CommonController;
 @RestController
 public class TproductosController extends CommonController<Tproducto, tProductoService>{
 	
-	@PutMapping("/actualizar-precio/{id}")
+	/*@PutMapping("/actualizar-precio/{id}")
 	public ResponseEntity<?> actualizaPrecio(Tproducto producto, @PathVariable Long id, BindingResult result){
 		if(result.hasErrors()) {
 			return this.validar(result);
@@ -34,6 +34,6 @@ public class TproductosController extends CommonController<Tproducto, tProductoS
 		Double precio=productoBd.getPeso()*1000;
 		productoBd.setValor(precio);
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(productoBd));
-	}
+	}*/
 	
 }
