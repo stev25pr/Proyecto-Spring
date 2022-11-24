@@ -2,10 +2,14 @@ package co.edu.ucentral.common.tproducto.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -37,23 +41,50 @@ public class Tproducto implements Serializable{
 	@Positive(message="No puede ser negativo")
 	private double volumen;
 	
+	@NotNull(message="NO puede ser nulo")
+	@Positive(message="No puede ser negativo")
+	private double trasnporte; /// Poner una lista de opciones y cada una se envia un valor diferente
+	
+	@NotNull(message="NO puede ser nulo")
+	@Positive(message="No puede ser negativo")
+	private double fragilidad;///Poner una lista de opciones y cada una se envia un valor diferente
+	
 	//Se utiliza para gurdar el precio que tiene enviar 
 	//este producto con todas las tarifas que esten activas
 	@NotNull(message="NO puede ser nulo")
 	@Positive(message="No puede ser negativo")
 	private double valor;
 	
+	//-----------Relaciones---------------------//
 	
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "mercancia_id")
+	private TipoMercancia mercancia;
+	
+	
+	public TipoMercancia getMercancia() {
+		return mercancia;
+	}
+
+
+	public void setMercancia(TipoMercancia mercancia) {
+		this.mercancia = mercancia;
+	}
+
+
+	//-----------------------------------------//
+
 	public Long getId() {
 		return id;
 	}
 
 
-
-
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+
+
 
 	public String getNombre() {
 		return nombre;
@@ -106,6 +137,34 @@ public class Tproducto implements Serializable{
 
 	public void setVolumen(double volumen) {
 		this.volumen = volumen;
+	}
+
+
+
+
+	public double getTrasnporte() {
+		return trasnporte;
+	}
+
+
+
+
+	public void setTrasnporte(double trasnporte) {
+		this.trasnporte = trasnporte;
+	}
+
+
+
+
+	public double getFragilidad() {
+		return fragilidad;
+	}
+
+
+
+
+	public void setFragilidad(double fragilidad) {
+		this.fragilidad = fragilidad;
 	}
 
 

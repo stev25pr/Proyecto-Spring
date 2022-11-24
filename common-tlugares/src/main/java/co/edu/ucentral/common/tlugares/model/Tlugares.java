@@ -32,8 +32,6 @@ public class Tlugares implements Serializable{
 	private String valor_envio;
 	
 	
-
-
 	public Long getId() {
 		return id;
 	}
