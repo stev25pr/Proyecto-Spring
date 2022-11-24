@@ -7,9 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="transporte")
+@Table(name="t_transporte")
 public class Transporte implements Serializable{
 	
 	
@@ -17,9 +19,10 @@ public class Transporte implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty(message="No puede ser vacio")
+	@Size(min=5, max=30, message="Carateres min 5 y max 30")
 	private String nombre_transporte;
-	private Float precio;
-	
+
 	
 
 	public Long getId() {
@@ -43,20 +46,6 @@ public class Transporte implements Serializable{
 	public void setNombre_transporte(String nombre_transporte) {
 		this.nombre_transporte = nombre_transporte;
 	}
-
-
-
-	public Float getPrecio() {
-		return precio;
-	}
-
-
-
-	public void setPrecio(Float precio) {
-		this.precio = precio;
-	}
-
-
 
 	private static final long serialVersionUID = 1L;
 }

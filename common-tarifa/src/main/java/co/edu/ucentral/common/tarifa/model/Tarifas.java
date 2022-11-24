@@ -9,20 +9,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tarifas")
+@Table(name="tarifa")
 public class Tarifas implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private double peso;
-	private double volumen;
+	private String nombre;
+	
+	private int porcentaje;
+	
 	
 	public Long getId() {
 		return id;
 	}
-
 
 
 	public void setId(Long id) {
@@ -30,30 +31,24 @@ public class Tarifas implements Serializable{
 	}
 
 
-
-	public double getPeso() {
-		return peso;
+	public String getNombre() {
+		return nombre;
 	}
 
 
-
-	public void setPeso(double peso) {
-		this.peso = peso;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 
-
-	public double getVolumen() {
-		return volumen;
+	public int getPorcentaje() {
+		return porcentaje;
 	}
 
 
-
-	public void setVolumen(double volumen) {
-		this.volumen = volumen;
+	public void setPorcentaje(int porcentaje) {
+		this.porcentaje = porcentaje;
 	}
-
-
 
 	private static final long serialVersionUID = 1L;
 }

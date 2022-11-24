@@ -7,6 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="tipo_mercancia")
@@ -17,8 +21,16 @@ public class TipoMercancia implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty(message="No puede ser vacio")
+	@Size(min=5, max=30, message="Carateres min 5 y max 30")
 	private String nombre;
+	
+	@NotEmpty(message="No puede ser vacio")
+	@Size(min=5, max=30, message="Carateres min 5 y max 30")
 	private String descripcion;
+	
+	@NotNull(message="No puede ser nulo")
+	@Positive(message="No pude ser negativo")
 	private Float precio;
 	
 	
