@@ -1,4 +1,4 @@
-package co.edu.ucentral.common.tlugares.model;
+package co.edu.ucentral.servicio.tproductos.model;
 
 import java.io.Serializable;
 
@@ -10,42 +10,51 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-
 @Entity
-@Table(name="t_lugares")
-public class Tlugares implements Serializable{
+@Table(name="t_tipo_mercancia")
+public class TipoMercancia implements Serializable{
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
+	private Long id;	
+		
 	@NotEmpty(message="No puede ser vacio")
 	@Size(min=5, max=30, message="Carateres min 5 y max 30")
-	private String nombre_lugar;
+	private String tipo;
+	
+	@NotEmpty(message="No puede ser vacio")
+	@Size(min=10, max=45, message="Carateres min 10 y max 45")
+	private String descripcion;
+	
 
-	
-	
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
-	public String getNombre_lugar() {
-		return nombre_lugar;
+	public String getTipo() {
+		return tipo;
 	}
 
-
-	public void setNombre_lugar(String nombre_lugar) {
-		this.nombre_lugar = nombre_lugar;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
+	public String getDescripcion() {
+		return descripcion;
+	}
 
-
-
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
+	
 }

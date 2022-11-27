@@ -19,8 +19,8 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>co.edu.ucentral.common.tproducto</groupId>
-			<artifactId>common-tproducto</artifactId>
+			<groupId>co.edu.ucentral.common.envio</groupId>
+			<artifactId>common-envio</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>

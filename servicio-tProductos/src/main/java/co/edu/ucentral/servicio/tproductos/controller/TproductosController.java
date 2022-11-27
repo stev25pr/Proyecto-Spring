@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.ucentral.common.tproducto.model.Tproducto;
+import co.edu.ucentral.servicio.tproductos.model.Tproducto;
 import co.edu.ucentral.servicio.tproductos.service.tProductoService;
 import steven.com.commons.services.controller.CommonController;
 

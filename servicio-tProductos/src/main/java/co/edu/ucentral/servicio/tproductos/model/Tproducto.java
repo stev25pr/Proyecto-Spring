@@ -1,4 +1,4 @@
-package co.edu.ucentral.common.tproducto.model;
+package co.edu.ucentral.servicio.tproductos.model;
 
 import java.io.Serializable;
 
@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -16,6 +17,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import co.edu.ucentral.common.envio.model.Envio;
 import co.edu.ucentral.common.tarifa.model.Tarifas;
 
 
@@ -57,6 +61,15 @@ public class Tproducto implements Serializable{
 	@Positive(message="No puede ser negativo")
 	private float valor;
 	
+	@ManyToOne
+	@JoinColumn(name ="tarifa_id")
+	private Tarifas tarifa;
+	
+	@JsonIgnoreProperties(value= {"t_producto"})
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="envio_id")
+	private Envio envio;
+	
 	
 	
 	
@@ -78,6 +91,8 @@ public class Tproducto implements Serializable{
 
 
 	//-----------------------------------------//
+
+	
 
 	public Long getId() {
 		return id;
@@ -141,6 +156,22 @@ public class Tproducto implements Serializable{
 
 	public void setValor(float valor) {
 		this.valor = valor;
+	}
+	
+	public Tarifas getTarifa() {
+		return tarifa;
+	}
+
+	public void setTarifa(Tarifas tarifa) {
+		this.tarifa = tarifa;
+	}
+
+	public Envio getEnvio() {
+		return envio;
+	}
+
+	public void setEnvio(Envio envio) {
+		this.envio = envio;
 	}
 	
 	private static final long serialVersionUID = 1L;
